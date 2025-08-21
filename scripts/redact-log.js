@@ -8,7 +8,10 @@ const b = '[A-Za-z0-9]';
 const patterns = [
   new RegExp(`(?<=[^${b}-_.]|^)${a}{20,}(?=[^${b}-_.]|$)`, 'g'),
   new RegExp('("|\'|"`)?([a-zA-Z0-9_]+_key|key|token|secret|password|pass|auth|jwt|bearer|api_key|api-key|access_token|refresh_token)("|\'|"`)?\s*[:=]\s*("|\'|"`)?[a-zA-Z0-9_\-.~+%/=]+("|\'|"`)?', 'gi'),
-  new RegExp('-----BEGIN[ A-Z]+ PRIVATE KEY-----[\s\S]*?-----END[ A-Z]+ PRIVATE KEY-----', 'gi')
+  new RegExp('-----BEGIN[ A-Z]+ PRIVATE KEY-----[\s\S]*?-----END[ A-Z]+ PRIVATE KEY-----', 'gi'),
+  new RegExp('sk_live_[a-zA-Z0-9]{24}', 'g'), // Stripe Live Secret Key
+  new RegExp('ghp_[a-zA-Z0-9]{36}', 'g'), // GitHub Personal Access Token
+  new RegExp('[a-zA-Z0-9_-]{10,}\.[a-zA-Z0-9_-]{10,}\.[a-zA-Z0-9_-]{10,}', 'g') // JWT-like
 ];
 
 function getEntropy(str) {

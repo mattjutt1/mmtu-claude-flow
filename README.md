@@ -15,7 +15,7 @@ To provide a safe and reliable way to automate tasks using Claude AI, with a str
 ### Quick Start
 
 1.  Clone the repository: `git clone <repo-url>`
-2.  Install dependencies: `npm install`
+2.  Install dependencies: `pnpm install` (or `npm install` if pnpm is not available)
 3.  Run the CLI: `npx mmtu-claude-flow run --task "Your task description"`
 
 ### Governance
@@ -38,17 +38,17 @@ The agent operates under the following principles:
 
 ```
 *WHO*: MMTU Claude Flow Agent
-*WHAT*: Executing 'npm install' to install dependencies.
+*WHAT*: Executing 'pnpm install' to install dependencies.
 *WHY*: To ensure all required packages are available for the build process.
 *WHERE*: In the root directory of the `mmtu-claude-flow` project.
 *WHEN*: 2025-08-21T12:00:00Z
-*HOW*: By running the `npm install` command using the shell executor.
-*EVIDENCE*: The `npm install` command returned a zero exit code.
+*HOW*: By running the `pnpm install` command using the shell executor.
+*EVIDENCE*: The `pnpm install` command returned a zero exit code.
 ```
 
 ### Required CI Checks
 
 The following CI job names must be used as required checks for pull requests:
 
-*   `smoke`
+*   `mmtu-claude-flow / smoke`
 *   `security`

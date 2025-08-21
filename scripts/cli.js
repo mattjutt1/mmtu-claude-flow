@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const { program } = require('commander');
+const program = require('commander');
+const { exec } = require('child_process');
 
 program
   .command('run')
@@ -8,8 +9,6 @@ program
   .option('--task <description>', 'The task to run')
   .action((options) => {
     console.log(`Running task: ${options.task}`);
-    const { exec } = require('child_process');
-
     const buildLoop = exec('bash scripts/build-loop.sh');
 
     buildLoop.stdout.on('data', (data) => {

@@ -4,7 +4,7 @@ SHELL := /bin/bash
 
 install:
 	@echo "Installing dependencies..."
-	npm install
+	pnpm install || npm install
 
 prove:
 	@echo "Running agent self-checks..."

@@ -1,0 +1,25 @@
+# secrets & env
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.crt
+*.cer
+*.pfx
+# tokens & caches
+.npmrc
+.yarnrc
+.pnpm-store/
+.vercel/
+.wrangler/
+.envrc
+# logs & run artifacts
+runlog.jsonl
+workspace/safe/*
+tmp/*
+# node build
+node_modules/
+dist/
+.parcel-cache/
+.next/

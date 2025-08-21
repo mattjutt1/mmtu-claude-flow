@@ -1,35 +1,17 @@
 {
-  "model_default": "sonnet",
-  "max_minutes_sonnet": 10,
-  "computer_use": "off_by_default",
-  "allow_tools": [
-    "fs.read",
-    "fs.write",
-    "shell.exec",
-    "git.status",
-    "git.diff",
-    "git.apply",
-    "gh.read",
-    "gh.list"
-  ],
+  "modes": { "model_default": "sonnet", "max_minutes_sonnet": 10, "computer_use": "off_by_default" },
+  "allow_tools": ["fs.read","fs.write","fs.list","shell.exec","git.status","git.diff","git.apply","gh.read","gh.list"],
+  "deny_tools": ["browser.navigate","browser.click","browser.type"],
   "paths": {
-    "write_allow": [
-      "./workspace/safe/**"
-    ],
-    "write_deny": [
-      "**/.git/**",
-      "**/.env",
-      "~/**",
-      "/etc/**",
-      "**/node_modules/**"
-    ]
+    "write_allow": ["./workspace/safe/**", "./tmp/**"],
+    "write_deny": ["**/.git/**","**/.env","~/**","/etc/**","**/node_modules/**"]
   },
-  "prompts": {
-    "prepend": "prompts/00-agent-frame.md"
-  },
-  "runlog": {
-    "path": "./runlog.jsonl",
-    "max_entry_bytes": 8192,
-    "redaction": true
+  "prompts": { "prepend": "prompts/00-agent-frame.md" },
+  "runlog": { "path": "./runlog.jsonl", "max_entry_bytes": 8192, "redaction": true },
+  "policy": {
+    "escalation": {
+      "to_opus_when": "multi-step or >10m",
+      "computer_use": "only if owner sets allow=1"
+    }
   }
 }

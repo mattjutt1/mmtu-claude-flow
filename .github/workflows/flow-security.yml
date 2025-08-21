@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: '0 0 * * *' # Nightly
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   security:
     runs-on: ubuntu-latest
@@ -23,6 +27,7 @@ jobs:
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
           publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
           generateSarif: "true"
+          config: auto
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
