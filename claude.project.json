@@ -1,0 +1,35 @@
+{
+  "model_default": "sonnet",
+  "max_minutes_sonnet": 10,
+  "computer_use": "off_by_default",
+  "allow_tools": [
+    "fs.read",
+    "fs.write",
+    "shell.exec",
+    "git.status",
+    "git.diff",
+    "git.apply",
+    "gh.read",
+    "gh.list"
+  ],
+  "paths": {
+    "write_allow": [
+      "./workspace/safe/**"
+    ],
+    "write_deny": [
+      "**/.git/**",
+      "**/.env",
+      "~/**",
+      "/etc/**",
+      "**/node_modules/**"
+    ]
+  },
+  "prompts": {
+    "prepend": "prompts/00-agent-frame.md"
+  },
+  "runlog": {
+    "path": "./runlog.jsonl",
+    "max_entry_bytes": 8192,
+    "redaction": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "mmtu-claude-flow",
+  "version": "0.1.0",
+  "description": "A Claude Flow variant for MMTU",
+  "main": "scripts/cli.js",
+  "bin": {
+    "mmtu-claude-flow": "./scripts/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
